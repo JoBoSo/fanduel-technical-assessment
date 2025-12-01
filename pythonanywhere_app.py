@@ -120,4 +120,4 @@ def update_chart(bet_type):
 
 # Run the app
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run(debug=False)
