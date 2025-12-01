@@ -89,13 +89,6 @@ app.layout = html.Div(
         ),
 
         html.Div(
-            style={
-                'backgroundColor': 'rgba(30, 30, 60, 0.9)',
-                'padding': '20px',
-                'borderRadius': '10px',
-                'lineHeight': '1.6',
-                'marginBottom': '20px'
-            },
             children=[
                 html.H3("Key Insights From the Regression Model"),
                 html.Ul([
@@ -105,8 +98,79 @@ app.layout = html.Div(
                     html.Li("Total stake has a very minor negative effect on GGR (coef ≈ -0.0088, p < 0.001)."),
                     html.Li("Model R² ≈ 0.11, indicating other factors also influence GGR. Sports betting outcomes are inherently unpredictable."),
                 ])
-            ]
-        )
+            ],
+            style={
+                'backgroundColor': 'rgba(30, 30, 60, 0.9)',
+                'padding': '20px',
+                'borderRadius': '10px',
+                'lineHeight': '1.6',
+                'marginBottom': '20px'
+            },
+        ),
+
+        html.Div(
+            className="cross-sell-container",
+            children=[
+                html.H2("Cross-Sell Recommendations", style={"marginTop": 0}),
+                html.P(
+                    "Using the finding that total bets and sports diversity are the strongest lifetime GGR drivers, "
+                    "we should target players already active across multiple sports and bet types:",
+                    style={"marginBottom": "18px"}
+                ),
+                # DFS
+                html.Div(
+                    children=[
+                        html.H3("DFS Cross-Sell", style={"marginBottom": "6px"}),
+                        html.Ul([
+                            html.Li([html.Strong("Segment: "), "Players who bet on multiple sports in the last 30 days"]),
+                            html.Li([html.Strong("Strategy: "), "Recommend DFS contests using their top 1 - 2 sports"]),
+                            html.Li([html.Strong("KPIs: "), "DFS entry rate and incremental GGR per contest"]),
+                        ], style={"marginTop": "6px"})
+                    ],
+                    style={"padding": "12px", "borderRadius": "8px", "backgroundColor": "rgba(25,25,45,0.6)", "marginBottom": "12px"}
+                ),
+                # Casino
+                html.Div(
+                    children=[
+                        html.H3("Casino Cross-Sell", style={"marginBottom": "6px"}),
+                        html.Ul([
+                            html.Li([html.Strong("Segment: "), "Players with high bet-type diversity (parlays:straights ≈ 50:50)"]),
+                            html.Li([html.Strong("Strategy: "), "Suggest Casino games with similar volatility profiles to parlay behavior"]),
+                            html.Li([html.Strong("KPIs: "), "First-time Casino participation and repeat engagement"]),
+                        ], style={"marginTop": "6px"})
+                    ],
+                    style={"padding": "12px", "borderRadius": "8px", "backgroundColor": "rgba(25,25,45,0.6)", "marginBottom": "12px"}
+                ),
+                # Racing & Gaming
+                html.Div(
+                    children=[
+                        html.H3("Racing & Gaming", style={"marginBottom": "6px"}),
+                        html.Ul([
+                            html.Li([html.Strong("Segment: "), "Players placing frequent low-stake bets"]),
+                            html.Li([html.Strong("Strategy: "), "Offer Racing & Gaming options with low-risk, quick-play entry points"]),
+                            html.Li([html.Strong("KPIs: "), "Conversion to Racing products and short-term GGR lift"]),
+                        ], style={"marginTop": "6px"})
+                    ],
+                    style={"padding": "12px", "borderRadius": "8px", "backgroundColor": "rgba(25,25,45,0.6)", "marginBottom": "12px"}
+                ),
+                # Overall goal
+                html.Div(
+                    children=[
+                        html.H4("Overall goal", style={"marginBottom": "6px"}),
+                        html.P("Convert already engaged sports bettors into multi-product users, increasing total bets and therefore total GGR.",
+                            style={"marginTop": 0})
+                    ],
+                    style={"padding": "12px", "borderRadius": "8px", "backgroundColor": "rgba(20,20,35,0.6)"}
+                ),
+            ],
+            style={
+                'backgroundColor': 'rgba(30, 30, 60, 0.9)',
+                'padding': '20px',
+                'borderRadius': '10px',
+                'lineHeight': '1.6',
+                'marginBottom': '20px'
+            },
+        ),
 
 ])
 
