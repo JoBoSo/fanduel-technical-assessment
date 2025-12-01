@@ -70,14 +70,6 @@ I recommend that the CRM Manager add constraints that limit the set of users to 
 - The key segmentation variables outlined in (1.) can be incorporated into other queries for tests relating to the segment-specific offers. for tests run within segments, then the CRM Manager should consider the counts within each.
 
 ### Question 3 
-    i.  playerid 
-    ii.  alias 
-    iii.  email 
-    iv.  total stake generated in 2019 
-    v.  margin in 2019 (i.e. gross revenue/stake) 
-    vi.  last bet placed date 
-    vii.  total amount deposited on Sportsbook (approved deposit only) 
-How would you create this list in SQL?
 
 ```sql
 with
