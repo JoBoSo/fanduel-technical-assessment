@@ -1,24 +1,12 @@
 import plotly.graph_objects as go
-import plotly.express as px
-import pandas as pd
 from modules.Dataframes import Dataframes
-import statsmodels.api as sm
 
 def coeff_bar():
     """
     Returns a bar chart of OLS coefficients with error bars.
     """
     dfs = Dataframes()
-    player_df = dfs.load_act_diversity_model()
-    X = player_df[['sport_diversity','type_diversity','total_bets','total_stake']]
-    X = sm.add_constant(X)
-    y = player_df['total_ggr']
-    model = sm.OLS(y, X).fit()
-    coef_df = pd.DataFrame({
-        "feature": model.params.index,
-        "coef": model.params.values,
-        "stderr": model.bse.values
-    }).drop(index=0)  # drop intercept
+    coef_df = dfs.load_model_coeffs()
 
     fig = go.Figure()
     fig.add_trace(go.Bar(

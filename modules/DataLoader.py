@@ -2,6 +2,7 @@ from os import path
 import pandas as pd
 import numpy as np
 import sqlite3
+import statsmodels.api as sm
 
 class DataLoader():
     db_path = "./data/db.sqlite3"
@@ -71,6 +72,28 @@ class DataLoader():
             player_df.to_parquet(parquet_path)
             print('Saved parquet')
             df = player_df
+        return df
+    
+    def load_model_coeffs(self):
+        parquet_path = './data/model_coeffs.parquet'
+        if path.exists(parquet_path):
+            print("Loading cached data…")
+            df = pd.read_parquet(parquet_path).copy()
+        else:
+            player_df = self.load_act_diversity_model()
+            X = player_df[['sport_diversity','type_diversity','total_bets','total_stake']]
+            X = sm.add_constant(X)
+            y = player_df['total_ggr']
+            model = sm.OLS(y, X).fit()
+            coef_df = pd.DataFrame({
+                "feature": model.params.index,
+                "coef": model.params.values,
+                "stderr": model.bse.values
+            }).drop(index=0)  # drop intercept
+            # Cache to parquet
+            coef_df.to_parquet(parquet_path)
+            print('Saved parquet')
+            df = coef_df
         return df
 
 
