@@ -26,5 +26,6 @@ def act_div_bar():
         height=450,
         margin=dict(l=0, r=0, t=35, b=0),
         template="plotly_dark",
+        dragmode='pan', 
     )
     return fig

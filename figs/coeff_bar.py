@@ -24,5 +24,6 @@ def coeff_bar():
         width=300,
         height=450,
         margin=dict(l=0, r=0, t=35, b=0),
+        dragmode='pan', 
     )
     return fig
