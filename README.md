@@ -4,7 +4,7 @@
 Please find my responses [here](SQL_Exercise.md).
 
 ## Practical Project
-Please see my dashboard [here]().
+Please see my dashboard [here](https://fandueldash2.pythonanywhere.com/).
 
 Thanks,<br>
 James
