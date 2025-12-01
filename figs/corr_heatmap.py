@@ -1,6 +1,4 @@
-import plotly.graph_objects as go
 import plotly.express as px
-import pandas as pd
 from modules.Dataframes import Dataframes
 
 def corr_heatmap():
@@ -8,8 +6,7 @@ def corr_heatmap():
     Returns a heatmap of correlations.
     """
     dfs = Dataframes()
-    df = dfs.load_act_diversity_model()
-    corr = df.corr()
+    corr = dfs.load_correlations()
     fig = px.imshow(
         corr,
         text_auto=".2f",

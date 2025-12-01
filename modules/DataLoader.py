@@ -95,5 +95,19 @@ class DataLoader():
             print('Saved parquet')
             df = coef_df
         return df
+    
+    def load_correlations(self):
+        parquet_path = './data/correlations.parquet'
+        if path.exists(parquet_path):
+            print("Loading cached data…")
+            df = pd.read_parquet(parquet_path).copy()
+        else:
+            df = self.load_act_diversity_model()
+            corr_df = df.corr()
+            # Cache to parquet
+            corr_df.to_parquet(parquet_path)
+            print('Saved parquet')
+            df = corr_df
+        return df
 
 
