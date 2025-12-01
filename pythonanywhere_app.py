@@ -6,6 +6,7 @@ from figs.corr_heatmap import corr_heatmap
 
 # Initialize the Dash app
 app = Dash(__name__)
+server = app.server
 
 # Define the app layout
 app.layout = html.Div(
@@ -117,7 +118,3 @@ app.layout = html.Div(
 def update_chart(bet_type):
     fig = ggr_line_chart(bet_type)
     return fig
-
-# Run the app
-if __name__ == '__main__':
-    app.run(debug=False)
