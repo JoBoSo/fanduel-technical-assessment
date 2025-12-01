@@ -1,0 +1,57 @@
+@import url('https://fonts.googleapis.com/css?family=Poppins&display=swap');
+
+html, body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+}
+
+/* .modebar { */
+    /* display: none !important; Hide Plotly modebar */
+/* } */
+
+.explanation {
+    font-size: 16px;
+    margin: 0px 0px 20px 0px;
+    text-align: center;
+}
+
+.dashboard {
+    background-color: #040c24;
+    font-family: 'Poppins', sans-serif;
+    color: #ffffff;
+    padding: 20px 30px 20px 30px;
+}
+
+.dashboard-title {
+    font-size: 28px;
+    font-weight: bold;
+    margin: 0px 0px 10px 0px;
+    display: flex;
+    justify-content: center;
+    align-items: center; 
+}
+
+.default-fig-title {
+    font-size: 18px;
+    font-weight: bold;
+    padding: 5px 0px 6px 0px;
+    display: flex;
+    justify-content: center;
+    align-items: center; 
+}
+
+.default-fig-parent-container {
+    border: 2px solid #524d94;
+    border-radius: 7px;
+    padding: 5px;
+    margin: 20px auto;
+    max-width: 1200px;
+}
+
+.default-fig-parent-container .default-fig-container {
+    display: flex;
+    justify-content: safe center;
+    align-items: center; 
+    overflow: auto;
+}
