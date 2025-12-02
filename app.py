@@ -19,7 +19,7 @@ app.layout = html.Div(
 
         html.Div(
             className='explanation',
-            children='We can\'t predict or influence the outcomes of sports games, but we can understand and steer user behaviour.'
+            children='We can\'t predict or influence the outcomes of sports games, but we can understand and steer user behaviour on our platform.'
         ),
 
         # GGR by Sport, Bet Type & Event Start Date
@@ -54,13 +54,18 @@ app.layout = html.Div(
         html.Div(
             className='default-fig-parent-container',
             children=[
-                html.Div(className='default-fig-title', children='The Impact of Diversity of Betting Activity on Total Avg GGR'),
+                html.Div(
+                    className='default-fig-title', children='The Impact of Diverse Betting Activity on a User\'s Lifetime GGR'),
+                html.Div(
+                    className='explanation',
+                    children='Our most valuable users by lifetime GGR demonstrate diverse betting activity.'
+                ),
                 html.Div(
                     className='default-fig-container',
                     children=[
+                        dcc.Graph(id='bar-ggr', figure=act_div_bar()),
                         dcc.Graph(figure=corr_heatmap()),
                         dcc.Graph(figure=coeff_bar()),
-                        dcc.Graph(id='bar-ggr', figure=act_div_bar()),
                     ],
                     style={'gap': '15px'}
                 ),

@@ -14,7 +14,11 @@ def corr_heatmap():
         aspect="auto"
     )
     fig.update_layout(
-        title="Correlation Heatmap",
+        title={
+            'text': "Correlation Heatmap",
+            'x': 0.5,  # Sets the x position to the middle of the figure
+            'xanchor': 'center' # Centers the title horizontally at the 'x' position
+        },
         template="plotly_dark",
         width=500,
         height=450,

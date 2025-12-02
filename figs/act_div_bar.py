@@ -16,7 +16,11 @@ def act_div_bar():
         color_discrete_sequence=px.colors.sequential.Plasma
     )
     fig.update_layout(
-        title="Sport Diversity Buckets",
+        title={
+            'text': "Sport Diversity vs. GGR",
+            'x': 0.5,  # Sets the x position to the middle of the figure
+            'xanchor': 'center' # Centers the title horizontally at the 'x' position
+        },
         xaxis_title="Sport Diversity Bucket",
         yaxis_title="Avg Total GGR",
         showlegend=False,
